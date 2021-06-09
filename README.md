@@ -19,7 +19,7 @@ Negahbani, F., Sabzi, R., Pakniyat Jahromi, B. et al. PathoNet introduced as a d
 We would like to thank them for sharing their dataset and encourage you to visit their webpage http://shiraz-hidc.com for information of how to contact the authors and visit their repository: https://github.com/SHIDCenter/PathoNet.
 
 Other datasets can be used with the code included in this repository provided the following guidelines are followed:
-
+* The file "label_class_dict.csv" must be saved in the same directory as the data
 * Raw image tiles: jpeg iamge sized 1228x1228 at objective lens 40x. These will ultimately be downsized to 256x256 so tiles of 256x256 at 8.35x would be equivalent.
 * Mask Generation (Generate_Mask_from_JSON.ipynb): This notebook will take JSON files and create the mask (png) size 256x256 along with the downsized raw image tile at 256x256 in png format. It is assumed that the original image sise is 1228x1228. It is also assumed that the data has already been separated in to train/test/validation groups. Additionally, the number of actual Ki-67 positive cells in the JSON files along with the number of non-positive cells is saved to a CSV file for future reference.
 * The following file structure was used during the development of this work and it is recommended an analogous structure is used when running the code from this repository
