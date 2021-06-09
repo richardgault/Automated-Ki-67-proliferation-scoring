@@ -21,12 +21,12 @@ We would like to thank them for sharing their dataset and encourage you to visit
 Other datasets can be used with the code included in this repository provided the following guidelines are followed:
 
 * Raw image tiles: jpeg iamge sized 1228x1228 at objective lens 40x. These will ultimately be downsized to 256x256 so tiles of 256x256 at 8.35x would be equivalent.
-* Mask Generation ():
+* Mask Generation (Generate_Mask_from_JSON.ipynb): This notebook will take JSON files and create the mask (png) size 256x256 along with the downsized raw image tile at 256x256 in png format. It is assumed that the original image sise is 1228x1228. It is also assumed that the data has already been separated in to train/test/validation groups. Additionally, the number of actual Ki-67 positive cells in the JSON files along with the number of non-positive cells is saved to a CSV file for future reference.
 * The following file structure was used during the development of this work and it is recommended an analogous structure is used when running the code from this repository
   * All Data
     * training data raw images: 256x256 at 8.35x effective magnification (i.e. 1228x1228 at 40x magnification) (png)
     * training data labels: The ground truth information for the cell classes are stored in a JSON file in the form	[{"x": 123, "y":456, "label_id": 1},{"x":321, "y":654, "label_id": 2}, ... ] where the x and y coordinate is "in the cell" and the label_id indicates the class - Ki67 positive cell (id = 1) or non-positive cell (id = 2). The example above would be the triplets for two different cells.(JSON)
-    * training ground truth masks: (generated using: ) 256x256 png with background as black (0,0,0), the non-positive cells coloured grey (128,128,128), and the ki67 cells coloured white (255,255,255)
+    * training ground truth masks: (generated using: Generate_Mask_from_JSON.ipynb) 256x256 png with background as black (0,0,0), the non-positive cells coloured grey (128,128,128), and the ki67 cells coloured white (255,255,255)
     * validation data raw images: same format as training data raw images.
     * validation data labels: same format as training data labels
     * validation ground truth masks: same format as training ground truth masks (generated using: )(png)
