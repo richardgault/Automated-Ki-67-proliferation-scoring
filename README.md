@@ -1,6 +1,9 @@
 # Automated-Ki-67-proliferation-scoring
 
-This repository contains the relevant files to implement the modelling work outlined in: McConnell et. al. XXXX. This work was developed by Miranda McConnell and has utilised a number of open-source libraries
+This repository contains the relevant files to implement the modelling work outlined in: McConnell et. al. XXXX. This work was developed by Miranda McConnell and has utilised a number of open-source libraries. The paper can be cited as:
+```
+McConnell, M., Gault, R., Craig, S., Cutting, D., Rainer, A., James, J. "Automated Ki-67 proliferation scoring from histopathology images using Mobile and Cloud technology" (2021) Irish Machine Vision and Image Processing Conference: Irish Pattern Recognition & Classification Society.
+```
 
 ## Background
 
@@ -17,35 +20,28 @@ We would like to thank them for sharing their dataset and encourage you to visit
 
 Other datasets can be used with the code included in this repository provided the following guidelines are followed:
 
+* Raw image tiles: jpeg iamge sized 1228x1228 at objective lens 40x. These will ultimately be downsized to 256x256 so tiles of 256x256 at 8.35x would be equivalent.
 * Mask Generation ():
 * The following file structure was used during the development of this work and it is recommended an analogous structure is used when running the code from this repository
   * All Data
-    * training data raw images (png)
-    * training data labels (JSON)
-    * training ground truth masks (generated using: ) (png)
-    * validation data raw images (png)
-    * validation data labels (JSON)
-    * validation ground truth masks (generated using: )(png)
-    * test data raw images (png) 
-    * test data labels (JSON)
-    * test data ground truth masks (generated using: )(png)
-* Annotated labels in JSON files.  
-
+    * training data raw images: 256x256 at 8.35x effective magnification (i.e. 1228x1228 at 40x magnification) (png)
+    * training data labels: The ground truth information for the cell classes are stored in a JSON file in the form	[{"x": 123, "y":456, "label_id": 1},{"x":321, "y":654, "label_id": 2}, ... ] where the x and y coordinate is "in the cell" and the label_id indicates the class - Ki67 positive cell (id = 1) or non-positive cell (id = 2). The example above would be the triplets for two different cells.(JSON)
+    * training ground truth masks: (generated using: ) 256x256 png with background as black (0,0,0), the non-positive cells coloured grey (128,128,128), and the ki67 cells coloured white (255,255,255)
+    * validation data raw images: same format as training data raw images.
+    * validation data labels: same format as training data labels
+    * validation ground truth masks: same format as training ground truth masks (generated using: )(png)
+    * test data raw images: same format as training/validation data raw images. 
+    * test data labels: same format as training/validation data labels
+    * test data ground truth masks: same format as training/validation ground truth masks (generated using: )(png)
+    * Note: The file name of the training/validation/test images is contained within the filename of the corresponding label and mask files.
+* Annotated labels in JSON files:  The triplets are parsed and used to to create a ground truth mask (as outlined above). The mask starts at 1228x1228 and is resized to 256x256 and saved as a png.
+* The model takes the 256x256 png tile and uses the 256x256 mask to evaluate the model performance.
+  
+## Usage
 All code can be run using Google Colab for easy access to GPU resources. Check that GPU is utilised in Colab by going to Edit -> Notebook Settings -- and ensure hardware accelerator is set to GPU. Depending on the size of the data you are analysing Colab may suggest that you have ran out of memory when running the Model training. It may be possible to easily resolve this by Runtime -> Factory reset runtime. Alterating model hyperparameters (e.g. batch size) may also help but may lead to a change in model performance.
 
-## Usage
-```python
-import foobar
-
-foobar.pluralize('word') # returns 'words'
-foobar.pluralize('goose') # returns 'geese'
-foobar.singularize('phenomena') # returns 'phenomenon'
-```
-
 ## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-Please make sure to update tests as appropriate.
+Pull requests are welcome. We would also welcome collaboration on this project or tangential projects - please contact richard.gault@qub.ac.uk.
 
 ## License
 [MIT] https://github.com/richardgault/Automated-Ki-67-proliferation-scoring/blob/main/LICENSE
