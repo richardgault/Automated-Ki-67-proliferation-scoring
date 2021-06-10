@@ -40,6 +40,10 @@ Other datasets can be used with the code included in this repository provided th
 ## Usage
 All code can be run using Google Colab for easy access to GPU resources. Check that GPU is utilised in Colab by going to Edit -> Notebook Settings -- and ensure hardware accelerator is set to GPU. Depending on the size of the data you are analysing Colab may suggest that you have ran out of memory when running the Model training. It may be possible to easily resolve this by Runtime -> Factory reset runtime. Alterating model hyperparameters (e.g. batch size) may also help but may lead to a change in model performance.
 
+* To train the model from scratch run Ki67Net_McConnell_et_al_train_test_val.ipynb (ensure that label_class_dict.csv" is saved in the same directory as the data)
+* To run the trained model the saved model and model dictionary can be downloaded from: https://drive.google.com/file/d/1Lp5TKGmPb5QJARLinTcJFe0HStwcjkKj/view?usp=sharing, https://drive.google.com/file/d/1j30iby5wKdiKFQD4oVInp6fVuFP0VuQr/view?usp=sharing. Inference testing can be carried out on new images by running run-ki67Net_McConnell-el-al.ipynb
+
+
 ## Contributing
 Pull requests are welcome. We would also welcome collaboration on this project or tangential projects - please contact richard.gault@qub.ac.uk.
 
