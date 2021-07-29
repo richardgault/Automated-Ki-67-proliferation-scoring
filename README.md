@@ -2,7 +2,7 @@
 
 This repository contains the relevant files to implement the modelling work outlined in: McConnell et. al. XXXX. This work was developed by Miranda McConnell and has utilised a number of open-source libraries. The paper can be cited as:
 ```
-McConnell, M., Gault, R., Craig, S., Cutting, D., Rainer, A., James, J. "Automated Ki-67 proliferation scoring from histopathology images using Mobile and Cloud technology" UNDER REVIEW AT (2021) Irish Machine Vision and Image Processing Conference: Irish Pattern Recognition & Classification Society.
+McConnell, M., Gault, R., Craig, S., Cutting, D., Rainer, A., James, J. "Automated Ki-67 proliferation scoring from histopathology images using Mobile and Cloud technology" Accepted (2021) Irish Machine Vision and Image Processing Conference: Irish Pattern Recognition & Classification Society.
 ```
 
 ## Background
